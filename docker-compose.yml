@@ -1,0 +1,151 @@
+version: "3.9"
+
+# ─────────────────────────────────────────────────────────────────────
+# Demand Forecasting System — Docker Compose
+# Services: api | dashboard | db | pgadmin (optional)
+# ─────────────────────────────────────────────────────────────────────
+
+networks:
+  forecast-net:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  artifacts_data:
+  logs_data:
+
+
+services:
+
+  # ── PostgreSQL Database ───────────────────────────────────────────
+  db:
+    image: postgres:15-alpine
+    container_name: forecast_db
+    restart: unless-stopped
+    networks:
+      - forecast-net
+    environment:
+      POSTGRES_DB: ${DB_NAME:-demand_forecast}
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres} -d ${DB_NAME:-demand_forecast}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  # ── Training Pipeline (one-shot) ──────────────────────────────────
+  trainer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    container_name: forecast_trainer
+    restart: "no"
+    networks:
+      - forecast-net
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-demand_forecast}
+      DB_USER: ${DB_USER:-postgres}
+      DB_PASSWORD: ${DB_PASSWORD:-postgres}
+      PYTHONPATH: /app
+    volumes:
+      - artifacts_data:/app/artifacts
+      - logs_data:/app/logs
+      - ./data:/app/data
+    command: >
+      python -m src.pipeline --no-eda
+    profiles:
+      - train     # run with: docker compose --profile train up trainer
+
+  # ── FastAPI Service ───────────────────────────────────────────────
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    container_name: forecast_api
+    restart: unless-stopped
+    networks:
+      - forecast-net
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-demand_forecast}
+      DB_USER: ${DB_USER:-postgres}
+      DB_PASSWORD: ${DB_PASSWORD:-postgres}
+      APP_ENV: production
+      API_HOST: 0.0.0.0
+      API_PORT: 8000
+      PYTHONPATH: /app
+    volumes:
+      - artifacts_data:/app/artifacts:ro
+      - logs_data:/app/logs
+    ports:
+      - "${API_PORT:-8000}:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    command: >
+      uvicorn src.api.main:app
+      --host 0.0.0.0 --port 8000 --workers 2 --log-level info
+
+  # ── Streamlit Dashboard ───────────────────────────────────────────
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    container_name: forecast_dashboard
+    restart: unless-stopped
+    networks:
+      - forecast-net
+    depends_on:
+      - api
+    environment:
+      PYTHONPATH: /app
+    volumes:
+      - artifacts_data:/app/artifacts:ro
+      - ./data:/app/data:ro
+    ports:
+      - "${DASHBOARD_PORT:-8501}:8501"
+    command: >
+      streamlit run dashboard/app.py
+      --server.port 8501
+      --server.address 0.0.0.0
+      --server.headless true
+      --browser.gatherUsageStats false
+
+  # ── pgAdmin (optional) ────────────────────────────────────────────
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: forecast_pgadmin
+    restart: unless-stopped
+    networks:
+      - forecast-net
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@forecast.local}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin}
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+    profiles:
+      - admin     # run with: docker compose --profile admin up

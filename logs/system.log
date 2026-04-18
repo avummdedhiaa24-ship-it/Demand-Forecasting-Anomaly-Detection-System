@@ -1,0 +1,706 @@
+2026-04-18 18:54:23 | INFO | src.utils.logger:setup_logger:56 - Logger initialised. Level=INFO
+2026-04-18 18:54:38 | WARNING | src.api.database:create_db_engine:64 - PostgreSQL unavailable ((psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432). Falling back to SQLite.
+2026-04-18 18:54:38 | INFO | __main__:run:68 - ============================================================
+2026-04-18 18:54:38 | INFO | __main__:run:69 - 🚀 Training Pipeline Started
+2026-04-18 18:54:38 | INFO | __main__:run:70 - ============================================================
+2026-04-18 18:54:38 | INFO | __main__:run:73 - 
+📥 Stage 1: Data Ingestion
+2026-04-18 18:54:38 | INFO | src.ingestion.data_loader:generate_synthetic_dataset:97 - Generating synthetic demand dataset (730 days, freq=1H)
+2026-04-18 18:54:38 | ERROR | src.utils.logger:wrapper:83 - ✗ src.ingestion.data_loader.DataDownloader.generate_synthetic_dataset failed after 1.74ms — Invalid frequency: 1H. Failed to parse with error message: ValueError("Invalid frequency: H. Failed to parse with error message: KeyError('H'). Did you mean h?")
+2026-04-18 18:54:38 | ERROR | src.utils.logger:wrapper:83 - ✗ src.ingestion.data_loader.DataLoader.load failed after 2.15ms — Invalid frequency: 1H. Failed to parse with error message: ValueError("Invalid frequency: H. Failed to parse with error message: KeyError('H'). Did you mean h?")
+2026-04-18 18:54:38 | ERROR | src.utils.logger:wrapper:83 - ✗ __main__.TrainingPipeline.run failed after 3.51ms — Invalid frequency: 1H. Failed to parse with error message: ValueError("Invalid frequency: H. Failed to parse with error message: KeyError('H'). Did you mean h?")
+2026-04-18 18:56:13 | INFO | src.utils.logger:setup_logger:56 - Logger initialised. Level=INFO
+2026-04-18 18:56:14 | WARNING | src.api.database:create_db_engine:64 - PostgreSQL unavailable ((psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432). Falling back to SQLite.
+2026-04-18 18:56:14 | INFO | __main__:run:68 - ============================================================
+2026-04-18 18:56:14 | INFO | __main__:run:69 - 🚀 Training Pipeline Started
+2026-04-18 18:56:14 | INFO | __main__:run:70 - ============================================================
+2026-04-18 18:56:14 | INFO | __main__:run:73 - 
+📥 Stage 1: Data Ingestion
+2026-04-18 18:56:14 | INFO | src.ingestion.data_loader:generate_synthetic_dataset:97 - Generating synthetic demand dataset (730 days, freq=h)
+2026-04-18 18:56:15 | INFO | src.ingestion.data_loader:generate_synthetic_dataset:144 - Synthetic dataset saved → data/raw/synthetic_demand.csv (17520 rows)
+2026-04-18 18:56:15 | INFO | src.ingestion.data_loader:load:177 - Loading data from data/raw/synthetic_demand.csv
+2026-04-18 18:56:15 | WARNING | src.ingestion.data_loader:_enforce_schema:233 - Column 'timestamp' dtype 'datetime64[us]' — expected 'datetime64[ns]'
+2026-04-18 18:56:15 | INFO | src.ingestion.data_loader:load:190 - Loaded 17520 rows × 3 cols | Memory: 291.0 KB
+2026-04-18 18:56:15 | INFO | src.ingestion.data_loader:detect_missing_timestamps:260 - No missing timestamps detected.
+2026-04-18 18:56:15 | INFO | __main__:run:77 - Raw data: 17520 rows | 0 missing timestamps
+2026-04-18 18:56:15 | INFO | __main__:run:81 - 
+📊 Stage 2: Exploratory Data Analysis
+2026-04-18 18:56:15 | INFO | src.evaluation.eda:run_full_eda:57 - Starting EDA on 17520 rows
+2026-04-18 18:56:15 | INFO | src.evaluation.eda:_summary_stats:339 - Summary stats: {'n_observations': 17520, 'start_date': '2021-01-01 00:00:00', 'end_date': '2022-12-31 23:00:00', 'mean': 981.5, 'std': 276.86, 'min': 42.12, 'max': 2065.71, 'median': 1021.25, 'skewness': -0.2315, 'kurtosis': -0.3966, 'pct_missing': 0.0}
+2026-04-18 18:56:17 | ERROR | src.utils.logger:wrapper:83 - ✗ src.evaluation.eda.EDAAnalyser.run_full_eda failed after 1994.36ms — Invalid frequency: 6H. Failed to parse with error message: ValueError("Invalid frequency: H. Failed to parse with error message: KeyError('H'). Did you mean h?")
+2026-04-18 18:56:17 | ERROR | src.utils.logger:wrapper:83 - ✗ __main__.TrainingPipeline.run failed after 2050.82ms — Invalid frequency: 6H. Failed to parse with error message: ValueError("Invalid frequency: H. Failed to parse with error message: KeyError('H'). Did you mean h?")
+2026-04-18 18:57:33 | INFO | src.utils.logger:setup_logger:56 - Logger initialised. Level=INFO
+2026-04-18 18:57:35 | WARNING | src.api.database:create_db_engine:64 - PostgreSQL unavailable ((psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432). Falling back to SQLite.
+2026-04-18 18:57:35 | INFO | __main__:run:68 - ============================================================
+2026-04-18 18:57:35 | INFO | __main__:run:69 - 🚀 Training Pipeline Started
+2026-04-18 18:57:35 | INFO | __main__:run:70 - ============================================================
+2026-04-18 18:57:35 | INFO | __main__:run:73 - 
+📥 Stage 1: Data Ingestion
+2026-04-18 18:57:35 | INFO | src.ingestion.data_loader:load:177 - Loading data from data/raw/synthetic_demand.csv
+2026-04-18 18:57:35 | WARNING | src.ingestion.data_loader:_enforce_schema:233 - Column 'timestamp' dtype 'datetime64[us]' — expected 'datetime64[ns]'
+2026-04-18 18:57:35 | INFO | src.ingestion.data_loader:load:190 - Loaded 17520 rows × 3 cols | Memory: 291.0 KB
+2026-04-18 18:57:35 | INFO | src.ingestion.data_loader:detect_missing_timestamps:260 - No missing timestamps detected.
+2026-04-18 18:57:35 | INFO | __main__:run:77 - Raw data: 17520 rows | 0 missing timestamps
+2026-04-18 18:57:35 | INFO | __main__:run:81 - 
+📊 Stage 2: Exploratory Data Analysis
+2026-04-18 18:57:35 | INFO | src.evaluation.eda:run_full_eda:57 - Starting EDA on 17520 rows
+2026-04-18 18:57:35 | INFO | src.evaluation.eda:_summary_stats:339 - Summary stats: {'n_observations': 17520, 'start_date': '2021-01-01 00:00:00', 'end_date': '2022-12-31 23:00:00', 'mean': 981.5, 'std': 276.86, 'min': 42.12, 'max': 2065.71, 'median': 1021.25, 'skewness': -0.2315, 'kurtosis': -0.3966, 'pct_missing': 0.0}
+2026-04-18 18:57:37 | INFO | src.evaluation.eda:run_full_eda:74 - EDA complete — plots saved to artifacts/plots/eda
+2026-04-18 18:57:37 | INFO | __main__:run:87 - 
+🧹 Stage 3: Preprocessing
+2026-04-18 18:57:37 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 17520 rows
+2026-04-18 18:57:37 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 17520 rows | 63 outliers treated | demand μ=981.2 σ=275.6
+2026-04-18 18:57:37 | INFO | src.preprocessing.cleaner:temporal_split:250 - Temporal split → train: 12264 (70%) | val: 2628 (15%) | test: 2628 (15%)
+2026-04-18 18:57:37 | INFO | src.preprocessing.cleaner:fit_scaler:107 - Fitted standard scaler
+2026-04-18 18:57:37 | INFO | src.utils.helpers:save_artifact:45 - Saved artifact → artifacts/models/cleaner.pkl
+2026-04-18 18:57:37 | INFO | __main__:run:95 - Cleaner stats: {'n_rows': 17520, 'n_outliers': 63, 'demand_mean': 981.1930314640413, 'demand_std': 275.6424048054246, 'demand_min': 191.97874999999988, 'demand_max': 1759.12875}
+2026-04-18 18:57:37 | INFO | __main__:run:98 - 
+⚙️  Stage 4: Feature Engineering
+2026-04-18 18:57:37 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 18:57:37 | INFO | src.utils.helpers:save_artifact:45 - Saved artifact → artifacts/models/feature_engineer.pkl
+2026-04-18 18:57:37 | INFO | __main__:run:109 - Features: X_train=(12096, 51), X_val=(2460, 51), X_test=(2460, 51)
+2026-04-18 18:57:37 | INFO | __main__:run:119 - 
+🤖 Stage 5: Model Training
+2026-04-18 18:57:38 | INFO | __main__:run:141 - Training linear_regression...
+2026-04-18 18:57:38 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 14556 samples × 51 features
+2026-04-18 18:57:38 | INFO | src.evaluation.metrics:evaluate:167 - [linear_regression] Test — RMSE=79.58 MAE=40.90 MAPE=4.71% R²=0.9148
+2026-04-18 18:57:38 | INFO | src.evaluation.metrics:_plot_forecast:265 - Forecast plot saved → artifacts/plots/linear_regression_forecast.png
+2026-04-18 18:57:38 | INFO | src.evaluation.metrics:_plot_residuals:309 - Residual plot saved → artifacts/plots/linear_regression_residuals.png
+2026-04-18 18:57:38 | INFO | src.utils.helpers:save_artifact:45 - Saved artifact → artifacts/models/linear_regression.pkl
+2026-04-18 18:57:38 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 1992 samples × 51 features
+2026-04-18 18:57:38 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 4008 samples × 51 features
+2026-04-18 18:57:38 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 6024 samples × 51 features
+2026-04-18 18:57:38 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 8040 samples × 51 features
+2026-04-18 18:57:38 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 10056 samples × 51 features
+2026-04-18 18:57:38 | INFO | src.evaluation.metrics:time_series_cv:131 - CV (5 folds) — RMSE 103.09 ± 39.86 | MAPE 7.41% ± 3.87%
+2026-04-18 18:57:38 | INFO | __main__:run:141 - Training ridge...
+2026-04-18 18:57:38 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 18:57:38 | INFO | src.evaluation.metrics:evaluate:167 - [ridge] Test — RMSE=79.58 MAE=40.90 MAPE=4.71% R²=0.9148
+2026-04-18 18:57:38 | INFO | src.evaluation.metrics:_plot_forecast:265 - Forecast plot saved → artifacts/plots/ridge_forecast.png
+2026-04-18 18:57:39 | INFO | src.evaluation.metrics:_plot_residuals:309 - Residual plot saved → artifacts/plots/ridge_residuals.png
+2026-04-18 18:57:39 | INFO | src.utils.helpers:save_artifact:45 - Saved artifact → artifacts/models/ridge.pkl
+2026-04-18 18:57:39 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 18:57:39 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 18:57:39 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 18:57:39 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 18:57:39 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 18:57:39 | INFO | src.evaluation.metrics:time_series_cv:131 - CV (5 folds) — RMSE 87.00 ± 12.97 | MAPE 5.84% ± 1.66%
+2026-04-18 18:57:39 | INFO | __main__:run:141 - Training lasso...
+2026-04-18 18:57:39 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 18:57:41 | INFO | src.models.baseline_models:fit:84 - Lasso: 5 / 51 features zeroed out (sparsity=9.8%)
+2026-04-18 18:57:41 | INFO | src.evaluation.metrics:evaluate:167 - [lasso] Test — RMSE=79.58 MAE=40.83 MAPE=4.70% R²=0.9148
+2026-04-18 18:57:41 | INFO | src.evaluation.metrics:_plot_forecast:265 - Forecast plot saved → artifacts/plots/lasso_forecast.png
+2026-04-18 18:57:42 | INFO | src.evaluation.metrics:_plot_residuals:309 - Residual plot saved → artifacts/plots/lasso_residuals.png
+2026-04-18 18:57:42 | INFO | src.utils.helpers:save_artifact:45 - Saved artifact → artifacts/models/lasso.pkl
+2026-04-18 18:57:42 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 18:57:42 | INFO | src.models.baseline_models:fit:84 - Lasso: 9 / 51 features zeroed out (sparsity=17.6%)
+2026-04-18 18:57:42 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 18:57:43 | INFO | src.models.baseline_models:fit:84 - Lasso: 8 / 51 features zeroed out (sparsity=15.7%)
+2026-04-18 18:57:43 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 18:57:43 | INFO | src.models.baseline_models:fit:84 - Lasso: 7 / 51 features zeroed out (sparsity=13.7%)
+2026-04-18 18:57:43 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 18:57:44 | INFO | src.models.baseline_models:fit:84 - Lasso: 6 / 51 features zeroed out (sparsity=11.8%)
+2026-04-18 18:57:44 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 18:57:45 | INFO | src.models.baseline_models:fit:84 - Lasso: 6 / 51 features zeroed out (sparsity=11.8%)
+2026-04-18 18:57:45 | INFO | src.evaluation.metrics:time_series_cv:131 - CV (5 folds) — RMSE 84.77 ± 12.10 | MAPE 5.63% ± 1.66%
+2026-04-18 18:57:45 | INFO | __main__:run:141 - Training random_forest...
+2026-04-18 18:57:45 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 14556 samples × 51 features
+2026-04-18 18:57:59 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'demand_lag_168h': 0.8747629206244775, 'demand_lag_24h': 0.05288726739756762, 'is_night': 0.011365916970302418, 'demand_lag_48h': 0.008678760122869339, 'hour': 0.004580626179502409}
+2026-04-18 18:57:59 | INFO | src.evaluation.metrics:evaluate:167 - [random_forest] Test — RMSE=80.73 MAE=40.97 MAPE=4.73% R²=0.9124
+2026-04-18 18:57:59 | INFO | src.evaluation.metrics:_plot_forecast:265 - Forecast plot saved → artifacts/plots/random_forest_forecast.png
+2026-04-18 18:58:00 | INFO | src.evaluation.metrics:_plot_residuals:309 - Residual plot saved → artifacts/plots/random_forest_residuals.png
+2026-04-18 18:58:00 | INFO | src.utils.helpers:save_artifact:45 - Saved artifact → artifacts/models/random_forest.pkl
+2026-04-18 18:58:00 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 1992 samples × 51 features
+2026-04-18 18:58:01 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'demand_lag_168h': 0.7621671328948407, 'demand_lag_24h': 0.10915433373721187, 'is_night': 0.056847644902766614, 'hour': 0.012506885200072142, 'demand_lag_48h': 0.012285661337820128}
+2026-04-18 18:58:01 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 4008 samples × 51 features
+2026-04-18 18:58:04 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'is_night': 0.492857628435796, 'demand_lag_168h': 0.3681851622183655, 'demand_lag_24h': 0.06847188706239901, 'hour': 0.008923265612929682, 'demand_lag_48h': 0.007662747243738827}
+2026-04-18 18:58:04 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 6024 samples × 51 features
+2026-04-18 18:58:09 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'demand_lag_168h': 0.8432022446158611, 'demand_lag_24h': 0.07428108733011189, 'is_night': 0.015143138702897532, 'demand_lag_48h': 0.013482879125965313, 'demand_lag_1h': 0.004125438966824214}
+2026-04-18 18:58:09 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 8040 samples × 51 features
+2026-04-18 18:58:16 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'demand_lag_168h': 0.8601431034449887, 'demand_lag_24h': 0.06704814138958495, 'demand_lag_48h': 0.010739079346539677, 'is_night': 0.009111646662125985, 'demand_lag_1h': 0.0038884951642048655}
+2026-04-18 18:58:16 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 10056 samples × 51 features
+2026-04-18 18:58:26 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'demand_lag_168h': 0.8508619206226341, 'demand_lag_24h': 0.07712628482791925, 'is_night': 0.010047247080833252, 'demand_lag_48h': 0.008957340267401494, 'demand_lag_1h': 0.004153520010822629}
+2026-04-18 18:58:26 | INFO | src.evaluation.metrics:time_series_cv:131 - CV (5 folds) — RMSE 84.65 ± 4.67 | MAPE 5.56% ± 0.97%
+2026-04-18 18:58:26 | INFO | __main__:run:141 - Training xgboost...
+2026-04-18 18:58:26 | INFO | src.models.advanced_models:fit:79 - Training xgboost on 14556 samples
+2026-04-18 18:58:29 | INFO | src.evaluation.metrics:evaluate:167 - [xgboost] Test — RMSE=81.59 MAE=41.93 MAPE=4.79% R²=0.9105
+2026-04-18 18:58:29 | INFO | src.evaluation.metrics:_plot_forecast:265 - Forecast plot saved → artifacts/plots/xgboost_forecast.png
+2026-04-18 18:58:30 | INFO | src.evaluation.metrics:_plot_residuals:309 - Residual plot saved → artifacts/plots/xgboost_residuals.png
+2026-04-18 18:58:30 | INFO | src.utils.helpers:save_artifact:45 - Saved artifact → artifacts/models/xgboost.pkl
+2026-04-18 18:58:30 | INFO | src.models.advanced_models:fit:79 - Training xgboost on 1992 samples
+2026-04-18 18:58:32 | INFO | src.models.advanced_models:fit:79 - Training xgboost on 4008 samples
+2026-04-18 18:58:35 | INFO | src.models.advanced_models:fit:79 - Training xgboost on 6024 samples
+2026-04-18 18:58:38 | INFO | src.models.advanced_models:fit:79 - Training xgboost on 8040 samples
+2026-04-18 18:58:40 | INFO | src.models.advanced_models:fit:79 - Training xgboost on 10056 samples
+2026-04-18 18:58:44 | INFO | src.evaluation.metrics:time_series_cv:131 - CV (5 folds) — RMSE 96.67 ± 22.50 | MAPE 6.89% ± 2.74%
+2026-04-18 18:58:44 | INFO | __main__:run:141 - Training lightgbm...
+2026-04-18 18:58:44 | INFO | src.models.advanced_models:fit:121 - Training lightgbm on 14556 samples
+2026-04-18 18:58:48 | INFO | src.evaluation.metrics:evaluate:167 - [lightgbm] Test — RMSE=80.74 MAE=40.74 MAPE=4.70% R²=0.9123
+2026-04-18 18:58:48 | INFO | src.evaluation.metrics:_plot_forecast:265 - Forecast plot saved → artifacts/plots/lightgbm_forecast.png
+2026-04-18 18:58:49 | INFO | src.evaluation.metrics:_plot_residuals:309 - Residual plot saved → artifacts/plots/lightgbm_residuals.png
+2026-04-18 18:58:49 | INFO | src.utils.helpers:save_artifact:45 - Saved artifact → artifacts/models/lightgbm.pkl
+2026-04-18 18:58:49 | INFO | src.models.advanced_models:fit:121 - Training lightgbm on 1992 samples
+2026-04-18 18:58:52 | INFO | src.models.advanced_models:fit:121 - Training lightgbm on 4008 samples
+2026-04-18 18:58:55 | INFO | src.models.advanced_models:fit:121 - Training lightgbm on 6024 samples
+2026-04-18 18:58:58 | INFO | src.models.advanced_models:fit:121 - Training lightgbm on 8040 samples
+2026-04-18 18:59:02 | INFO | src.models.advanced_models:fit:121 - Training lightgbm on 10056 samples
+2026-04-18 18:59:05 | INFO | src.evaluation.metrics:time_series_cv:131 - CV (5 folds) — RMSE 86.27 ± 8.54 | MAPE 5.92% ± 1.74%
+2026-04-18 18:59:05 | INFO | __main__:run:177 - 
+🏆 Stage 6: Model Selection
+2026-04-18 18:59:05 | INFO | src.evaluation.metrics:compare_models:203 - Model comparison:
+                   test_rmse   test_mae  test_mape   test_r2  test_smape  cv_rmse_mean  cv_rmse_std  cv_mae_mean  cv_mae_std  cv_mape_mean  cv_mape_std  cv_r2_mean  cv_r2_std
+model                                                                                                                                                                         
+ridge              79.582626  40.900355   4.705311  0.914836    4.560740     87.000403    12.974652    51.529614   16.420873      5.844297     1.664851    0.892711   0.033924
+lasso              79.582810  40.829754   4.695106  0.914835    4.549791     84.766745    12.098188    49.246026   16.256535      5.630323     1.659525    0.898297   0.031102
+linear_regression  79.584206  40.903502   4.705563  0.914832    4.561208    103.091128    39.858095    66.145078   37.913680      7.409246     3.869251    0.830903   0.145709
+random_forest      80.728947  40.974037   4.727478  0.912365    4.591231     84.647923     4.672449    47.933891    6.229544      5.555196     0.969330    0.900209   0.011322
+lightgbm           80.737530  40.739171   4.698282  0.912346    4.586575     86.271957     8.538452    51.669853   12.223418      5.917882     1.739987    0.895796   0.020841
+xgboost            81.590872  41.928797   4.786962  0.910483    4.680826     96.674281    22.498462    59.842294   23.152069      6.886506     2.743612    0.863639   0.068967
+2026-04-18 18:59:05 | INFO | __main__:run:180 - Best model: ridge (RMSE=79.58)
+2026-04-18 18:59:05 | INFO | __main__:run:188 - Best model saved → artifacts/models/best_model.pkl
+2026-04-18 18:59:05 | INFO | src.evaluation.metrics:save_results:224 - Evaluation results saved → artifacts/metrics/evaluation_results.json
+2026-04-18 18:59:05 | INFO | __main__:run:193 - 
+🚨 Stage 7: Fitting Anomaly Detector
+2026-04-18 18:59:05 | INFO | src.anomaly_detection.detector:fit:82 - Fitting Isolation Forest on 12096 samples
+2026-04-18 18:59:05 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=986.64, σ=276.63, threshold=3.0
+2026-04-18 18:59:05 | INFO | src.anomaly_detection.detector:fit:213 - ResidualDetector fitted — residual μ=-0.41, σ=76.40, k=3.0
+2026-04-18 18:59:05 | INFO | src.anomaly_detection.detector:fit:286 - EnsembleDetector fitted on 12096 samples
+2026-04-18 18:59:06 | INFO | src.utils.helpers:save_artifact:45 - Saved artifact → artifacts/models/ensemble_detector.pkl
+2026-04-18 18:59:06 | INFO | src.anomaly_detection.detector:predict:113 - Isolation Forest — 201/2460 anomalies (8.2%)
+2026-04-18 18:59:06 | INFO | src.anomaly_detection.detector:predict:188 - Z-score — 3/2460 anomalies
+2026-04-18 18:59:06 | INFO | src.anomaly_detection.detector:predict:253 - Residual detector — 52/2460 anomalies (threshold=229.20)
+2026-04-18 18:59:06 | INFO | src.anomaly_detection.detector:predict:326 - Ensemble — 7/2460 anomalies (0.3%)
+2026-04-18 18:59:06 | INFO | __main__:run:213 - Test anomalies: 7/2460
+2026-04-18 18:59:06 | INFO | __main__:run:218 - 
+💾 Stage 8: Persisting Metrics to Database
+2026-04-18 18:59:06 | INFO | src.api.database:init_db:178 - Database tables initialised
+2026-04-18 18:59:06 | INFO | __main__:run:237 - Metrics persisted to DB
+2026-04-18 18:59:06 | INFO | __main__:run:255 - ============================================================
+2026-04-18 18:59:06 | INFO | __main__:run:256 - ✅ Pipeline complete in 90.5s
+2026-04-18 18:59:06 | INFO | __main__:run:257 -    Best model: ridge | RMSE=79.58
+2026-04-18 18:59:06 | INFO | __main__:run:259 - ============================================================
+2026-04-18 18:59:43 | INFO | src.utils.logger:setup_logger:56 - Logger initialised. Level=INFO
+2026-04-18 18:59:44 | WARNING | src.api.database:create_db_engine:64 - PostgreSQL unavailable ((psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432). Falling back to SQLite.
+2026-04-18 18:59:45 | INFO | src.api.main:lifespan:65 - 🚀 Starting Demand Forecasting API v1.0.0
+2026-04-18 18:59:45 | INFO | src.api.database:init_db:178 - Database tables initialised
+2026-04-18 18:59:45 | INFO | src.api.main:lifespan:71 - ✅ Database initialised
+2026-04-18 18:59:45 | INFO | src.utils.helpers:load_artifact:63 - Loaded artifact ← artifacts/models/best_model.pkl
+2026-04-18 18:59:45 | INFO | src.api.main:lifespan:80 - ✅ Model loaded from artifacts/models/best_model.pkl
+2026-04-18 18:59:45 | INFO | src.utils.helpers:load_artifact:63 - Loaded artifact ← artifacts/models/ensemble_detector.pkl
+2026-04-18 18:59:45 | INFO | src.api.main:lifespan:90 - ✅ Anomaly detector loaded
+2026-04-18 18:59:56 | INFO | src.api.main:log_requests:128 - GET /docs → 200 [1.2ms]
+2026-04-18 18:59:58 | INFO | src.api.main:log_requests:128 - GET /openapi.json → 200 [35.2ms]
+2026-04-18 18:59:58 | INFO | src.api.main:log_requests:128 - GET /apple-touch-icon-precomposed.png → 404 [0.2ms]
+2026-04-18 18:59:58 | INFO | src.api.main:log_requests:128 - GET /apple-touch-icon.png → 404 [0.4ms]
+2026-04-18 19:01:53 | INFO | src.api.main:lifespan:96 - 👋 API shutting down
+2026-04-18 19:01:59 | INFO | src.utils.logger:setup_logger:56 - Logger initialised. Level=INFO
+2026-04-18 19:02:00 | WARNING | src.api.database:create_db_engine:64 - PostgreSQL unavailable ((psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432). Falling back to SQLite.
+2026-04-18 19:02:01 | INFO | src.api.main:lifespan:65 - 🚀 Starting Demand Forecasting API v1.0.0
+2026-04-18 19:02:01 | INFO | src.api.database:init_db:178 - Database tables initialised
+2026-04-18 19:02:01 | INFO | src.api.main:lifespan:71 - ✅ Database initialised
+2026-04-18 19:02:01 | INFO | src.utils.helpers:load_artifact:63 - Loaded artifact ← artifacts/models/best_model.pkl
+2026-04-18 19:02:01 | INFO | src.api.main:lifespan:80 - ✅ Model loaded from artifacts/models/best_model.pkl
+2026-04-18 19:02:01 | INFO | src.utils.helpers:load_artifact:63 - Loaded artifact ← artifacts/models/ensemble_detector.pkl
+2026-04-18 19:02:01 | INFO | src.api.main:lifespan:90 - ✅ Anomaly detector loaded
+2026-04-18 19:02:15 | INFO | src.api.main:log_requests:128 - GET /health → 200 [4.9ms]
+2026-04-18 19:02:15 | INFO | src.api.main:log_requests:128 - GET /metrics → 200 [10.8ms]
+2026-04-18 19:03:02 | INFO | src.api.main:log_requests:128 - GET /docs → 200 [3.5ms]
+2026-04-18 19:03:03 | INFO | src.api.main:log_requests:128 - GET /openapi.json → 200 [42.3ms]
+2026-04-18 19:03:03 | INFO | src.api.main:log_requests:128 - GET /docs → 200 [1.2ms]
+2026-04-18 19:03:03 | INFO | src.api.main:log_requests:128 - GET /openapi.json → 200 [0.8ms]
+2026-04-18 19:03:35 | INFO | src.utils.logger:setup_logger:56 - Logger initialised. Level=INFO
+2026-04-18 19:03:35 | WARNING | src.api.database:create_db_engine:64 - PostgreSQL unavailable ((psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432). Falling back to SQLite.
+2026-04-18 19:03:49 | INFO | src.api.main:log_requests:128 - GET /openapi.json → 200 [2.2ms]
+2026-04-18 19:04:01 | INFO | src.utils.logger:setup_logger:56 - Logger initialised. Level=INFO
+2026-04-18 19:04:01 | WARNING | src.api.database:create_db_engine:64 - PostgreSQL unavailable ((psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432). Falling back to SQLite.
+2026-04-18 19:04:02 | INFO | src.api.main:lifespan:65 - 🚀 Starting Demand Forecasting API v1.0.0
+2026-04-18 19:04:02 | INFO | src.api.database:init_db:178 - Database tables initialised
+2026-04-18 19:04:02 | INFO | src.api.main:lifespan:71 - ✅ Database initialised
+2026-04-18 19:04:02 | INFO | src.utils.helpers:load_artifact:63 - Loaded artifact ← artifacts/models/best_model.pkl
+2026-04-18 19:04:02 | INFO | src.api.main:lifespan:80 - ✅ Model loaded from artifacts/models/best_model.pkl
+2026-04-18 19:04:02 | INFO | src.utils.helpers:load_artifact:63 - Loaded artifact ← artifacts/models/ensemble_detector.pkl
+2026-04-18 19:04:02 | INFO | src.api.main:lifespan:90 - ✅ Anomaly detector loaded
+2026-04-18 19:04:02 | INFO | src.api.main:log_requests:128 - GET /health → 200 [2.8ms]
+2026-04-18 19:04:02 | INFO | src.api.main:log_requests:128 - GET /health → 200 [0.2ms]
+2026-04-18 19:04:02 | INFO | src.api.main:log_requests:128 - GET /health → 200 [0.1ms]
+2026-04-18 19:04:02 | INFO | src.api.main:log_requests:128 - POST /predict → 200 [22.7ms]
+2026-04-18 19:04:02 | INFO | src.api.main:log_requests:128 - POST /predict → 422 [1.4ms]
+2026-04-18 19:04:02 | INFO | src.api.main:log_requests:128 - POST /predict → 422 [1.2ms]
+2026-04-18 19:04:02 | ERROR | src.utils.logger:wrapper:111 - ✗ async src.api.main.detect_anomaly failed after 0.35ms — at least one array or dtype is required
+2026-04-18 19:04:02 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 422 [2.7ms]
+2026-04-18 19:04:02 | ERROR | src.utils.logger:wrapper:111 - ✗ async src.api.main.detect_anomaly failed after 0.40ms — at least one array or dtype is required
+2026-04-18 19:04:02 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 422 [1.8ms]
+2026-04-18 19:04:02 | ERROR | src.utils.logger:wrapper:111 - ✗ async src.api.main.detect_anomaly failed after 0.25ms — at least one array or dtype is required
+2026-04-18 19:04:02 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 422 [1.6ms]
+2026-04-18 19:04:02 | ERROR | src.utils.logger:wrapper:111 - ✗ async src.api.main.detect_anomaly failed after 0.27ms — at least one array or dtype is required
+2026-04-18 19:04:02 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 422 [1.5ms]
+2026-04-18 19:04:02 | ERROR | src.utils.logger:wrapper:111 - ✗ async src.api.main.detect_anomaly failed after 1.01ms — at least one array or dtype is required
+2026-04-18 19:04:02 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 422 [2.4ms]
+2026-04-18 19:04:02 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 422 [1.2ms]
+2026-04-18 19:04:02 | INFO | src.api.main:log_requests:128 - GET /metrics → 200 [3.6ms]
+2026-04-18 19:04:03 | INFO | src.api.main:log_requests:128 - GET /metrics → 200 [1.1ms]
+2026-04-18 19:04:03 | INFO | src.api.main:log_requests:128 - GET /predictions/history → 200 [1.5ms]
+2026-04-18 19:04:03 | INFO | src.api.main:log_requests:128 - GET /anomalies/history → 200 [2.1ms]
+2026-04-18 19:04:03 | INFO | src.api.main:log_requests:128 - GET /predictions/history → 200 [0.7ms]
+2026-04-18 19:04:03 | INFO | src.api.main:lifespan:96 - 👋 API shutting down
+2026-04-18 19:04:03 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=798.77, σ=27.91, threshold=3.0
+2026-04-18 19:04:03 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=798.77, σ=27.91, threshold=3.0
+2026-04-18 19:04:03 | INFO | src.anomaly_detection.detector:predict:188 - Z-score — 3/300 anomalies
+2026-04-18 19:04:03 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=798.77, σ=27.91, threshold=5.0
+2026-04-18 19:04:03 | INFO | src.anomaly_detection.detector:predict:188 - Z-score — 0/300 anomalies
+2026-04-18 19:04:03 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=798.77, σ=27.91, threshold=3.0
+2026-04-18 19:04:03 | INFO | src.anomaly_detection.detector:predict:188 - Z-score — 1/300 anomalies
+2026-04-18 19:04:03 | INFO | src.anomaly_detection.detector:fit:82 - Fitting Isolation Forest on 300 samples
+2026-04-18 19:04:03 | INFO | src.anomaly_detection.detector:predict:113 - Isolation Forest — 15/300 anomalies (5.0%)
+2026-04-18 19:04:03 | INFO | src.anomaly_detection.detector:fit:82 - Fitting Isolation Forest on 300 samples
+2026-04-18 19:04:03 | INFO | src.anomaly_detection.detector:predict:113 - Isolation Forest — 15/300 anomalies (5.0%)
+2026-04-18 19:04:03 | INFO | src.anomaly_detection.detector:fit:213 - ResidualDetector fitted — residual μ=0.00, σ=20.17, k=3.0
+2026-04-18 19:04:03 | INFO | src.anomaly_detection.detector:fit:213 - ResidualDetector fitted — residual μ=-3.33, σ=57.64, k=3.0
+2026-04-18 19:04:03 | INFO | src.anomaly_detection.detector:predict:253 - Residual detector — 1/300 anomalies (threshold=172.92)
+2026-04-18 19:04:03 | INFO | src.anomaly_detection.detector:fit:213 - ResidualDetector fitted — residual μ=0.00, σ=0.00, k=3.0
+2026-04-18 19:04:03 | INFO | src.anomaly_detection.detector:predict:253 - Residual detector — 0/300 anomalies (threshold=0.00)
+2026-04-18 19:04:03 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=798.77, σ=27.91, threshold=3.0
+2026-04-18 19:04:03 | INFO | src.anomaly_detection.detector:predict:188 - Z-score — 1/300 anomalies
+2026-04-18 19:04:03 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 240 samples × 9 features
+2026-04-18 19:04:03 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:04:03 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 19:04:03 | INFO | src.models.baseline_models:fit:84 - Lasso: 0 / 9 features zeroed out (sparsity=0.0%)
+2026-04-18 19:04:03 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 240 samples × 9 features
+2026-04-18 19:04:03 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:04:03 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 19:04:03 | INFO | src.models.baseline_models:fit:84 - Lasso: 0 / 9 features zeroed out (sparsity=0.0%)
+2026-04-18 19:04:03 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 240 samples × 9 features
+2026-04-18 19:04:03 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:04:03 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 19:04:03 | INFO | src.models.baseline_models:fit:84 - Lasso: 0 / 9 features zeroed out (sparsity=0.0%)
+2026-04-18 19:04:03 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:04:03 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 240 samples × 9 features
+2026-04-18 19:04:03 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'hour': 0.81074536500749, 'demand_lag_1h': 0.14727043361666142, 'demand_lag_24h': 0.01146781177984927, 'demand_roll_std_24h': 0.008087570349830034, 'demand_roll_mean_24h': 0.007312247566323201}
+2026-04-18 19:04:03 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 240 samples × 9 features
+2026-04-18 19:04:03 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'hour': 0.81074536500749, 'demand_lag_1h': 0.14727043361666142, 'demand_lag_24h': 0.01146781177984927, 'demand_roll_std_24h': 0.008087570349830034, 'demand_roll_mean_24h': 0.007312247566323201}
+2026-04-18 19:04:03 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 240 samples × 9 features
+2026-04-18 19:04:03 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'hour': 0.81074536500749, 'demand_lag_1h': 0.14727043361666142, 'demand_lag_24h': 0.01146781177984927, 'demand_roll_std_24h': 0.008087570349830034, 'demand_roll_mean_24h': 0.007312247566323201}
+2026-04-18 19:04:05 | INFO | src.utils.logger:setup_logger:56 - Logger initialised. Level=INFO
+2026-04-18 19:04:05 | WARNING | src.api.database:create_db_engine:64 - PostgreSQL unavailable ((psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432). Falling back to SQLite.
+2026-04-18 19:04:07 | INFO | src.api.main:lifespan:65 - 🚀 Starting Demand Forecasting API v1.0.0
+2026-04-18 19:04:07 | INFO | src.api.database:init_db:178 - Database tables initialised
+2026-04-18 19:04:07 | INFO | src.api.main:lifespan:71 - ✅ Database initialised
+2026-04-18 19:04:07 | INFO | src.utils.helpers:load_artifact:63 - Loaded artifact ← artifacts/models/best_model.pkl
+2026-04-18 19:04:07 | INFO | src.api.main:lifespan:80 - ✅ Model loaded from artifacts/models/best_model.pkl
+2026-04-18 19:04:07 | INFO | src.utils.helpers:load_artifact:63 - Loaded artifact ← artifacts/models/ensemble_detector.pkl
+2026-04-18 19:04:07 | INFO | src.api.main:lifespan:90 - ✅ Anomaly detector loaded
+2026-04-18 19:04:07 | INFO | src.api.main:log_requests:128 - GET /health → 200 [3.7ms]
+2026-04-18 19:04:07 | INFO | src.api.main:log_requests:128 - GET /health → 200 [0.2ms]
+2026-04-18 19:04:07 | INFO | src.api.main:log_requests:128 - GET /health → 200 [0.2ms]
+2026-04-18 19:04:07 | INFO | src.api.main:log_requests:128 - POST /predict → 200 [12.2ms]
+2026-04-18 19:04:07 | INFO | src.api.main:log_requests:128 - POST /predict → 422 [1.1ms]
+2026-04-18 19:04:07 | INFO | src.api.main:log_requests:128 - POST /predict → 422 [0.8ms]
+2026-04-18 19:04:07 | ERROR | src.utils.logger:wrapper:111 - ✗ async src.api.main.detect_anomaly failed after 0.88ms — at least one array or dtype is required
+2026-04-18 19:04:07 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 422 [3.2ms]
+2026-04-18 19:04:07 | ERROR | src.utils.logger:wrapper:111 - ✗ async src.api.main.detect_anomaly failed after 0.61ms — at least one array or dtype is required
+2026-04-18 19:04:07 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 422 [2.3ms]
+2026-04-18 19:04:07 | ERROR | src.utils.logger:wrapper:111 - ✗ async src.api.main.detect_anomaly failed after 0.46ms — at least one array or dtype is required
+2026-04-18 19:04:07 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 422 [2.2ms]
+2026-04-18 19:04:07 | ERROR | src.utils.logger:wrapper:111 - ✗ async src.api.main.detect_anomaly failed after 0.46ms — at least one array or dtype is required
+2026-04-18 19:04:07 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 422 [1.8ms]
+2026-04-18 19:04:07 | ERROR | src.utils.logger:wrapper:111 - ✗ async src.api.main.detect_anomaly failed after 0.54ms — at least one array or dtype is required
+2026-04-18 19:04:07 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 422 [2.1ms]
+2026-04-18 19:04:07 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 422 [1.6ms]
+2026-04-18 19:04:07 | INFO | src.api.main:log_requests:128 - GET /metrics → 200 [4.9ms]
+2026-04-18 19:04:07 | INFO | src.api.main:log_requests:128 - GET /metrics → 200 [0.9ms]
+2026-04-18 19:04:07 | INFO | src.api.main:log_requests:128 - GET /predictions/history → 200 [1.7ms]
+2026-04-18 19:04:07 | INFO | src.api.main:log_requests:128 - GET /anomalies/history → 200 [2.4ms]
+2026-04-18 19:04:07 | INFO | src.api.main:log_requests:128 - GET /predictions/history → 200 [1.0ms]
+2026-04-18 19:04:07 | INFO | src.api.main:lifespan:96 - 👋 API shutting down
+2026-04-18 19:04:07 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=798.77, σ=27.91, threshold=3.0
+2026-04-18 19:04:07 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=798.77, σ=27.91, threshold=3.0
+2026-04-18 19:04:07 | INFO | src.anomaly_detection.detector:predict:188 - Z-score — 3/300 anomalies
+2026-04-18 19:04:07 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=798.77, σ=27.91, threshold=5.0
+2026-04-18 19:04:07 | INFO | src.anomaly_detection.detector:predict:188 - Z-score — 0/300 anomalies
+2026-04-18 19:04:07 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=798.77, σ=27.91, threshold=3.0
+2026-04-18 19:04:07 | INFO | src.anomaly_detection.detector:predict:188 - Z-score — 1/300 anomalies
+2026-04-18 19:04:07 | INFO | src.anomaly_detection.detector:fit:82 - Fitting Isolation Forest on 300 samples
+2026-04-18 19:04:07 | INFO | src.anomaly_detection.detector:predict:113 - Isolation Forest — 15/300 anomalies (5.0%)
+2026-04-18 19:04:07 | INFO | src.anomaly_detection.detector:fit:82 - Fitting Isolation Forest on 300 samples
+2026-04-18 19:04:08 | INFO | src.anomaly_detection.detector:predict:113 - Isolation Forest — 15/300 anomalies (5.0%)
+2026-04-18 19:04:08 | INFO | src.anomaly_detection.detector:fit:213 - ResidualDetector fitted — residual μ=-0.45, σ=19.69, k=3.0
+2026-04-18 19:04:08 | INFO | src.anomaly_detection.detector:fit:213 - ResidualDetector fitted — residual μ=-3.33, σ=57.64, k=3.0
+2026-04-18 19:04:08 | INFO | src.anomaly_detection.detector:predict:253 - Residual detector — 1/300 anomalies (threshold=172.92)
+2026-04-18 19:04:08 | INFO | src.anomaly_detection.detector:fit:213 - ResidualDetector fitted — residual μ=0.00, σ=0.00, k=3.0
+2026-04-18 19:04:08 | INFO | src.anomaly_detection.detector:predict:253 - Residual detector — 0/300 anomalies (threshold=0.00)
+2026-04-18 19:04:08 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=798.77, σ=27.91, threshold=3.0
+2026-04-18 19:04:08 | INFO | src.anomaly_detection.detector:predict:188 - Z-score — 1/300 anomalies
+2026-04-18 19:04:08 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 240 samples × 9 features
+2026-04-18 19:04:08 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:04:08 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 19:04:08 | INFO | src.models.baseline_models:fit:84 - Lasso: 0 / 9 features zeroed out (sparsity=0.0%)
+2026-04-18 19:04:08 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 240 samples × 9 features
+2026-04-18 19:04:08 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:04:08 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 19:04:08 | INFO | src.models.baseline_models:fit:84 - Lasso: 0 / 9 features zeroed out (sparsity=0.0%)
+2026-04-18 19:04:08 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 240 samples × 9 features
+2026-04-18 19:04:08 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:04:08 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 19:04:08 | INFO | src.models.baseline_models:fit:84 - Lasso: 0 / 9 features zeroed out (sparsity=0.0%)
+2026-04-18 19:04:08 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:04:08 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 240 samples × 9 features
+2026-04-18 19:04:08 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'hour': 0.81074536500749, 'demand_lag_1h': 0.14727043361666142, 'demand_lag_24h': 0.01146781177984927, 'demand_roll_std_24h': 0.008087570349830034, 'demand_roll_mean_24h': 0.007312247566323201}
+2026-04-18 19:04:08 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 240 samples × 9 features
+2026-04-18 19:04:09 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'hour': 0.81074536500749, 'demand_lag_1h': 0.14727043361666142, 'demand_lag_24h': 0.01146781177984927, 'demand_roll_std_24h': 0.008087570349830034, 'demand_roll_mean_24h': 0.007312247566323201}
+2026-04-18 19:04:09 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 240 samples × 9 features
+2026-04-18 19:04:09 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'hour': 0.81074536500749, 'demand_lag_1h': 0.14727043361666142, 'demand_lag_24h': 0.01146781177984927, 'demand_roll_std_24h': 0.008087570349830034, 'demand_roll_mean_24h': 0.007312247566323201}
+2026-04-18 19:05:12 | INFO | src.api.main:lifespan:96 - 👋 API shutting down
+2026-04-18 19:06:23 | INFO | src.utils.logger:setup_logger:56 - Logger initialised. Level=INFO
+2026-04-18 19:06:23 | WARNING | src.api.database:create_db_engine:64 - PostgreSQL unavailable ((psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432). Falling back to SQLite.
+2026-04-18 19:06:25 | INFO | src.api.main:lifespan:65 - 🚀 Starting Demand Forecasting API v1.0.0
+2026-04-18 19:06:25 | INFO | src.api.database:init_db:178 - Database tables initialised
+2026-04-18 19:06:25 | INFO | src.api.main:lifespan:71 - ✅ Database initialised
+2026-04-18 19:06:25 | INFO | src.utils.helpers:load_artifact:63 - Loaded artifact ← artifacts/models/best_model.pkl
+2026-04-18 19:06:25 | INFO | src.api.main:lifespan:80 - ✅ Model loaded from artifacts/models/best_model.pkl
+2026-04-18 19:06:25 | INFO | src.utils.helpers:load_artifact:63 - Loaded artifact ← artifacts/models/ensemble_detector.pkl
+2026-04-18 19:06:25 | INFO | src.api.main:lifespan:90 - ✅ Anomaly detector loaded
+2026-04-18 19:06:25 | INFO | src.api.main:log_requests:128 - GET /health → 200 [3.9ms]
+2026-04-18 19:06:25 | INFO | src.api.main:log_requests:128 - GET /health → 200 [0.2ms]
+2026-04-18 19:06:25 | INFO | src.api.main:log_requests:128 - GET /health → 200 [0.4ms]
+2026-04-18 19:06:25 | INFO | src.api.main:log_requests:128 - POST /predict → 200 [25.5ms]
+2026-04-18 19:06:25 | INFO | src.api.main:log_requests:128 - POST /predict → 422 [1.8ms]
+2026-04-18 19:06:25 | INFO | src.api.main:log_requests:128 - POST /predict → 422 [1.2ms]
+2026-04-18 19:06:25 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 200 [5.3ms]
+2026-04-18 19:06:25 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 200 [1.6ms]
+2026-04-18 19:06:25 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 200 [1.6ms]
+2026-04-18 19:06:25 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 200 [1.7ms]
+2026-04-18 19:06:25 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 200 [1.5ms]
+2026-04-18 19:06:25 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 422 [0.9ms]
+2026-04-18 19:06:25 | INFO | src.api.main:log_requests:128 - GET /metrics → 200 [2.8ms]
+2026-04-18 19:06:25 | INFO | src.api.main:log_requests:128 - GET /metrics → 200 [0.7ms]
+2026-04-18 19:06:25 | INFO | src.api.main:log_requests:128 - GET /predictions/history → 200 [1.7ms]
+2026-04-18 19:06:25 | INFO | src.api.main:log_requests:128 - GET /anomalies/history → 200 [2.0ms]
+2026-04-18 19:06:25 | INFO | src.api.main:log_requests:128 - GET /predictions/history → 200 [0.8ms]
+2026-04-18 19:06:25 | INFO | src.api.main:lifespan:96 - 👋 API shutting down
+2026-04-18 19:06:25 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=798.77, σ=27.91, threshold=3.0
+2026-04-18 19:06:25 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=798.77, σ=27.91, threshold=3.0
+2026-04-18 19:06:25 | INFO | src.anomaly_detection.detector:predict:188 - Z-score — 3/300 anomalies
+2026-04-18 19:06:25 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=798.77, σ=27.91, threshold=5.0
+2026-04-18 19:06:25 | INFO | src.anomaly_detection.detector:predict:188 - Z-score — 0/300 anomalies
+2026-04-18 19:06:25 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=798.77, σ=27.91, threshold=3.0
+2026-04-18 19:06:25 | INFO | src.anomaly_detection.detector:predict:188 - Z-score — 1/300 anomalies
+2026-04-18 19:06:25 | INFO | src.anomaly_detection.detector:fit:82 - Fitting Isolation Forest on 300 samples
+2026-04-18 19:06:25 | INFO | src.anomaly_detection.detector:predict:113 - Isolation Forest — 15/300 anomalies (5.0%)
+2026-04-18 19:06:25 | INFO | src.anomaly_detection.detector:fit:82 - Fitting Isolation Forest on 300 samples
+2026-04-18 19:06:26 | INFO | src.anomaly_detection.detector:predict:113 - Isolation Forest — 15/300 anomalies (5.0%)
+2026-04-18 19:06:26 | INFO | src.anomaly_detection.detector:fit:213 - ResidualDetector fitted — residual μ=0.22, σ=19.39, k=3.0
+2026-04-18 19:06:26 | INFO | src.anomaly_detection.detector:fit:213 - ResidualDetector fitted — residual μ=-3.33, σ=57.64, k=3.0
+2026-04-18 19:06:26 | INFO | src.anomaly_detection.detector:predict:253 - Residual detector — 1/300 anomalies (threshold=172.92)
+2026-04-18 19:06:26 | INFO | src.anomaly_detection.detector:fit:213 - ResidualDetector fitted — residual μ=0.00, σ=0.00, k=3.0
+2026-04-18 19:06:26 | INFO | src.anomaly_detection.detector:predict:253 - Residual detector — 0/300 anomalies (threshold=0.00)
+2026-04-18 19:06:26 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=798.77, σ=27.91, threshold=3.0
+2026-04-18 19:06:26 | INFO | src.anomaly_detection.detector:predict:188 - Z-score — 1/300 anomalies
+2026-04-18 19:06:26 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:06:26 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:06:26 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:06:26 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:06:26 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:06:26 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:06:26 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:06:26 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:06:26 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:06:26 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:06:26 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:06:26 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:06:26 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:06:26 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 240 samples × 9 features
+2026-04-18 19:06:26 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:06:26 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 19:06:26 | INFO | src.models.baseline_models:fit:84 - Lasso: 0 / 9 features zeroed out (sparsity=0.0%)
+2026-04-18 19:06:26 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 240 samples × 9 features
+2026-04-18 19:06:26 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:06:26 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 19:06:26 | INFO | src.models.baseline_models:fit:84 - Lasso: 0 / 9 features zeroed out (sparsity=0.0%)
+2026-04-18 19:06:26 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 240 samples × 9 features
+2026-04-18 19:06:26 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:06:26 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 19:06:26 | INFO | src.models.baseline_models:fit:84 - Lasso: 0 / 9 features zeroed out (sparsity=0.0%)
+2026-04-18 19:06:26 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:06:26 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 240 samples × 9 features
+2026-04-18 19:06:26 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'hour': 0.81074536500749, 'demand_lag_1h': 0.14727043361666142, 'demand_lag_24h': 0.01146781177984927, 'demand_roll_std_24h': 0.008087570349830034, 'demand_roll_mean_24h': 0.007312247566323201}
+2026-04-18 19:06:26 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 240 samples × 9 features
+2026-04-18 19:06:26 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'hour': 0.81074536500749, 'demand_lag_1h': 0.14727043361666142, 'demand_lag_24h': 0.01146781177984927, 'demand_roll_std_24h': 0.008087570349830034, 'demand_roll_mean_24h': 0.007312247566323201}
+2026-04-18 19:06:26 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 240 samples × 9 features
+2026-04-18 19:06:26 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'hour': 0.81074536500749, 'demand_lag_1h': 0.14727043361666142, 'demand_lag_24h': 0.01146781177984927, 'demand_roll_std_24h': 0.008087570349830034, 'demand_roll_mean_24h': 0.007312247566323201}
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 0 outliers treated | demand μ=800.1 σ=75.7
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:_impute_missing:159 - Imputing 7 missing values using 'interpolate'
+2026-04-18 19:06:27 | ERROR | src.utils.logger:wrapper:83 - ✗ src.preprocessing.cleaner.DataCleaner.fit_transform failed after 1.22ms — time-weighted interpolation only works on Series or DataFrames with a DatetimeIndex
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 2 outliers treated | demand μ=799.8 σ=77.5
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 2 outliers treated | demand μ=799.8 σ=77.5
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 0 outliers treated | demand μ=800.1 σ=75.7
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 0 outliers treated | demand μ=800.1 σ=75.7
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_scaler:107 - Fitted standard scaler
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 0 outliers treated | demand μ=800.1 σ=75.7
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_scaler:107 - Fitted standard scaler
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 497 rows
+2026-04-18 19:06:27 | WARNING | src.preprocessing.cleaner:_reindex:146 - Reindexed 497 → 500 rows (3 timestamps filled with NaN)
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:_impute_missing:159 - Imputing 3 missing values using 'interpolate'
+2026-04-18 19:06:27 | ERROR | src.utils.logger:wrapper:83 - ✗ src.preprocessing.cleaner.DataCleaner.fit_transform failed after 1.66ms — time-weighted interpolation only works on Series or DataFrames with a DatetimeIndex
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 0 outliers treated | demand μ=800.1 σ=75.7
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:temporal_split:250 - Temporal split → train: 350 (70%) | val: 75 (15%) | test: 75 (15%)
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 0 outliers treated | demand μ=800.1 σ=75.7
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:temporal_split:250 - Temporal split → train: 350 (70%) | val: 75 (15%) | test: 75 (15%)
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 0 outliers treated | demand μ=800.1 σ=75.7
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:temporal_split:250 - Temporal split → train: 350 (70%) | val: 75 (15%) | test: 75 (15%)
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 0 outliers treated | demand μ=800.1 σ=75.7
+2026-04-18 19:06:27 | INFO | src.preprocessing.cleaner:temporal_split:250 - Temporal split → train: 300 (60%) | val: 100 (20%) | test: 100 (20%)
+2026-04-18 19:07:16 | INFO | src.utils.logger:setup_logger:56 - Logger initialised. Level=INFO
+2026-04-18 19:07:17 | WARNING | src.api.database:create_db_engine:64 - PostgreSQL unavailable ((psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432). Falling back to SQLite.
+2026-04-18 19:07:18 | INFO | src.api.main:lifespan:65 - 🚀 Starting Demand Forecasting API v1.0.0
+2026-04-18 19:07:18 | INFO | src.api.database:init_db:178 - Database tables initialised
+2026-04-18 19:07:18 | INFO | src.api.main:lifespan:71 - ✅ Database initialised
+2026-04-18 19:07:18 | INFO | src.utils.helpers:load_artifact:63 - Loaded artifact ← artifacts/models/best_model.pkl
+2026-04-18 19:07:18 | INFO | src.api.main:lifespan:80 - ✅ Model loaded from artifacts/models/best_model.pkl
+2026-04-18 19:07:18 | INFO | src.utils.helpers:load_artifact:63 - Loaded artifact ← artifacts/models/ensemble_detector.pkl
+2026-04-18 19:07:18 | INFO | src.api.main:lifespan:90 - ✅ Anomaly detector loaded
+2026-04-18 19:07:18 | INFO | src.api.main:log_requests:128 - GET /health → 200 [4.3ms]
+2026-04-18 19:07:18 | INFO | src.api.main:log_requests:128 - GET /health → 200 [0.2ms]
+2026-04-18 19:07:18 | INFO | src.api.main:log_requests:128 - GET /health → 200 [0.2ms]
+2026-04-18 19:07:18 | INFO | src.api.main:log_requests:128 - POST /predict → 200 [22.7ms]
+2026-04-18 19:07:18 | INFO | src.api.main:log_requests:128 - POST /predict → 422 [1.6ms]
+2026-04-18 19:07:18 | INFO | src.api.main:log_requests:128 - POST /predict → 422 [1.3ms]
+2026-04-18 19:07:18 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 200 [6.5ms]
+2026-04-18 19:07:18 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 200 [3.7ms]
+2026-04-18 19:07:19 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 200 [2.1ms]
+2026-04-18 19:07:19 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 200 [2.1ms]
+2026-04-18 19:07:19 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 200 [1.7ms]
+2026-04-18 19:07:19 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 422 [1.1ms]
+2026-04-18 19:07:19 | INFO | src.api.main:log_requests:128 - GET /metrics → 200 [2.8ms]
+2026-04-18 19:07:19 | INFO | src.api.main:log_requests:128 - GET /metrics → 200 [0.7ms]
+2026-04-18 19:07:19 | INFO | src.api.main:log_requests:128 - GET /predictions/history → 200 [1.7ms]
+2026-04-18 19:07:19 | INFO | src.api.main:log_requests:128 - GET /anomalies/history → 200 [2.2ms]
+2026-04-18 19:07:19 | INFO | src.api.main:log_requests:128 - GET /predictions/history → 200 [0.9ms]
+2026-04-18 19:07:19 | INFO | src.api.main:lifespan:96 - 👋 API shutting down
+2026-04-18 19:07:19 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=798.77, σ=27.91, threshold=3.0
+2026-04-18 19:07:19 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=798.77, σ=27.91, threshold=3.0
+2026-04-18 19:07:19 | INFO | src.anomaly_detection.detector:predict:188 - Z-score — 3/300 anomalies
+2026-04-18 19:07:19 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=798.77, σ=27.91, threshold=5.0
+2026-04-18 19:07:19 | INFO | src.anomaly_detection.detector:predict:188 - Z-score — 0/300 anomalies
+2026-04-18 19:07:19 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=798.77, σ=27.91, threshold=3.0
+2026-04-18 19:07:19 | INFO | src.anomaly_detection.detector:predict:188 - Z-score — 1/300 anomalies
+2026-04-18 19:07:19 | INFO | src.anomaly_detection.detector:fit:82 - Fitting Isolation Forest on 300 samples
+2026-04-18 19:07:19 | INFO | src.anomaly_detection.detector:predict:113 - Isolation Forest — 15/300 anomalies (5.0%)
+2026-04-18 19:07:19 | INFO | src.anomaly_detection.detector:fit:82 - Fitting Isolation Forest on 300 samples
+2026-04-18 19:07:19 | INFO | src.anomaly_detection.detector:predict:113 - Isolation Forest — 15/300 anomalies (5.0%)
+2026-04-18 19:07:19 | INFO | src.anomaly_detection.detector:fit:213 - ResidualDetector fitted — residual μ=-1.38, σ=18.67, k=3.0
+2026-04-18 19:07:19 | INFO | src.anomaly_detection.detector:fit:213 - ResidualDetector fitted — residual μ=-3.33, σ=57.64, k=3.0
+2026-04-18 19:07:19 | INFO | src.anomaly_detection.detector:predict:253 - Residual detector — 1/300 anomalies (threshold=172.92)
+2026-04-18 19:07:19 | INFO | src.anomaly_detection.detector:fit:213 - ResidualDetector fitted — residual μ=0.00, σ=0.00, k=3.0
+2026-04-18 19:07:19 | INFO | src.anomaly_detection.detector:predict:253 - Residual detector — 0/300 anomalies (threshold=0.00)
+2026-04-18 19:07:19 | INFO | src.anomaly_detection.detector:fit:151 - ZScoreDetector fitted — μ=798.77, σ=27.91, threshold=3.0
+2026-04-18 19:07:19 | INFO | src.anomaly_detection.detector:predict:188 - Z-score — 1/300 anomalies
+2026-04-18 19:07:19 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:07:19 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:07:19 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:07:19 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:07:19 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:07:19 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:07:19 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:07:19 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:07:19 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:07:19 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:07:19 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:07:19 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:07:19 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:07:19 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 240 samples × 9 features
+2026-04-18 19:07:19 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:07:19 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 19:07:19 | INFO | src.models.baseline_models:fit:84 - Lasso: 0 / 9 features zeroed out (sparsity=0.0%)
+2026-04-18 19:07:19 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 240 samples × 9 features
+2026-04-18 19:07:19 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:07:19 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 19:07:19 | INFO | src.models.baseline_models:fit:84 - Lasso: 0 / 9 features zeroed out (sparsity=0.0%)
+2026-04-18 19:07:19 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 240 samples × 9 features
+2026-04-18 19:07:19 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:07:19 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 19:07:19 | INFO | src.models.baseline_models:fit:84 - Lasso: 0 / 9 features zeroed out (sparsity=0.0%)
+2026-04-18 19:07:19 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:07:19 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 240 samples × 9 features
+2026-04-18 19:07:19 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'hour': 0.81074536500749, 'demand_lag_1h': 0.14727043361666142, 'demand_lag_24h': 0.01146781177984927, 'demand_roll_std_24h': 0.008087570349830034, 'demand_roll_mean_24h': 0.007312247566323201}
+2026-04-18 19:07:20 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 240 samples × 9 features
+2026-04-18 19:07:20 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'hour': 0.81074536500749, 'demand_lag_1h': 0.14727043361666142, 'demand_lag_24h': 0.01146781177984927, 'demand_roll_std_24h': 0.008087570349830034, 'demand_roll_mean_24h': 0.007312247566323201}
+2026-04-18 19:07:20 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 240 samples × 9 features
+2026-04-18 19:07:20 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'hour': 0.81074536500749, 'demand_lag_1h': 0.14727043361666142, 'demand_lag_24h': 0.01146781177984927, 'demand_roll_std_24h': 0.008087570349830034, 'demand_roll_mean_24h': 0.007312247566323201}
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 0 outliers treated | demand μ=800.1 σ=75.7
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:_impute_missing:159 - Imputing 7 missing values using 'interpolate'
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 0 outliers treated | demand μ=799.9 σ=75.6
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 2 outliers treated | demand μ=799.8 σ=77.5
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 2 outliers treated | demand μ=799.8 σ=77.5
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 0 outliers treated | demand μ=800.1 σ=75.7
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 0 outliers treated | demand μ=800.1 σ=75.7
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_scaler:107 - Fitted standard scaler
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 0 outliers treated | demand μ=800.1 σ=75.7
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_scaler:107 - Fitted standard scaler
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 497 rows
+2026-04-18 19:07:20 | WARNING | src.preprocessing.cleaner:_reindex:146 - Reindexed 497 → 500 rows (3 timestamps filled with NaN)
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:_impute_missing:159 - Imputing 3 missing values using 'interpolate'
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 0 outliers treated | demand μ=799.9 σ=75.6
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 0 outliers treated | demand μ=800.1 σ=75.7
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:temporal_split:250 - Temporal split → train: 350 (70%) | val: 75 (15%) | test: 75 (15%)
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 0 outliers treated | demand μ=800.1 σ=75.7
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:temporal_split:250 - Temporal split → train: 350 (70%) | val: 75 (15%) | test: 75 (15%)
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 0 outliers treated | demand μ=800.1 σ=75.7
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:temporal_split:250 - Temporal split → train: 350 (70%) | val: 75 (15%) | test: 75 (15%)
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 500 rows
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 500 rows | 0 outliers treated | demand μ=800.1 σ=75.7
+2026-04-18 19:07:20 | INFO | src.preprocessing.cleaner:temporal_split:250 - Temporal split → train: 300 (60%) | val: 100 (20%) | test: 100 (20%)
+2026-04-18 19:08:24 | INFO | src.utils.logger:setup_logger:56 - Logger initialised. Level=INFO
+2026-04-18 19:08:24 | WARNING | src.api.database:create_db_engine:64 - PostgreSQL unavailable ((psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432). Falling back to SQLite.
+2026-04-18 19:08:25 | INFO | src.api.main:lifespan:65 - 🚀 Starting Demand Forecasting API v1.0.0
+2026-04-18 19:08:25 | INFO | src.api.database:init_db:178 - Database tables initialised
+2026-04-18 19:08:25 | INFO | src.api.main:lifespan:71 - ✅ Database initialised
+2026-04-18 19:08:25 | INFO | src.utils.helpers:load_artifact:63 - Loaded artifact ← artifacts/models/best_model.pkl
+2026-04-18 19:08:25 | INFO | src.api.main:lifespan:80 - ✅ Model loaded from artifacts/models/best_model.pkl
+2026-04-18 19:08:25 | INFO | src.utils.helpers:load_artifact:63 - Loaded artifact ← artifacts/models/ensemble_detector.pkl
+2026-04-18 19:08:25 | INFO | src.api.main:lifespan:90 - ✅ Anomaly detector loaded
+2026-04-18 19:08:38 | INFO | src.api.main:log_requests:128 - POST /predict → 200 [37.8ms]
+2026-04-18 19:09:03 | INFO | src.api.main:log_requests:128 - POST /detect-anomaly → 200 [17.3ms]
+2026-04-18 19:09:25 | INFO | src.api.main:log_requests:128 - GET /health → 200 [1.9ms]
+2026-04-18 19:09:25 | INFO | src.api.main:log_requests:128 - GET /metrics → 200 [5.6ms]
+2026-04-18 19:09:25 | INFO | src.api.main:log_requests:128 - GET /predictions/history → 200 [2.2ms]
+2026-04-18 19:09:25 | INFO | src.api.main:log_requests:128 - GET /anomalies/history → 200 [2.7ms]
+2026-04-18 19:10:07 | INFO | src.utils.logger:setup_logger:56 - Logger initialised. Level=INFO
+2026-04-18 19:10:09 | WARNING | src.api.database:create_db_engine:64 - PostgreSQL unavailable ((psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432). Falling back to SQLite.
+2026-04-18 19:10:09 | INFO | __main__:run:68 - ============================================================
+2026-04-18 19:10:09 | INFO | __main__:run:69 - 🚀 Training Pipeline Started
+2026-04-18 19:10:09 | INFO | __main__:run:70 - ============================================================
+2026-04-18 19:10:09 | INFO | __main__:run:73 - 
+📥 Stage 1: Data Ingestion
+2026-04-18 19:10:09 | INFO | src.ingestion.data_loader:load:177 - Loading data from data/raw/synthetic_demand.csv
+2026-04-18 19:10:09 | WARNING | src.ingestion.data_loader:_enforce_schema:233 - Column 'timestamp' dtype 'datetime64[us]' — expected 'datetime64[ns]'
+2026-04-18 19:10:09 | INFO | src.ingestion.data_loader:load:190 - Loaded 17520 rows × 3 cols | Memory: 291.0 KB
+2026-04-18 19:10:09 | INFO | src.ingestion.data_loader:detect_missing_timestamps:260 - No missing timestamps detected.
+2026-04-18 19:10:09 | INFO | __main__:run:77 - Raw data: 17520 rows | 0 missing timestamps
+2026-04-18 19:10:09 | INFO | __main__:run:81 - 
+📊 Stage 2: Exploratory Data Analysis
+2026-04-18 19:10:09 | INFO | src.evaluation.eda:run_full_eda:57 - Starting EDA on 17520 rows
+2026-04-18 19:10:09 | INFO | src.evaluation.eda:_summary_stats:339 - Summary stats: {'n_observations': 17520, 'start_date': '2021-01-01 00:00:00', 'end_date': '2022-12-31 23:00:00', 'mean': 981.5, 'std': 276.86, 'min': 42.12, 'max': 2065.71, 'median': 1021.25, 'skewness': -0.2315, 'kurtosis': -0.3966, 'pct_missing': 0.0}
+2026-04-18 19:10:11 | INFO | src.evaluation.eda:run_full_eda:74 - EDA complete — plots saved to artifacts/plots/eda
+2026-04-18 19:10:11 | INFO | __main__:run:87 - 
+🧹 Stage 3: Preprocessing
+2026-04-18 19:10:11 | INFO | src.preprocessing.cleaner:fit_transform:66 - Starting cleaning pipeline — 17520 rows
+2026-04-18 19:10:11 | INFO | src.preprocessing.cleaner:fit_transform:81 - Cleaning complete — 17520 rows | 63 outliers treated | demand μ=981.2 σ=275.6
+2026-04-18 19:10:11 | INFO | src.preprocessing.cleaner:temporal_split:250 - Temporal split → train: 12264 (70%) | val: 2628 (15%) | test: 2628 (15%)
+2026-04-18 19:10:11 | INFO | src.preprocessing.cleaner:fit_scaler:107 - Fitted standard scaler
+2026-04-18 19:10:11 | INFO | src.utils.helpers:save_artifact:45 - Saved artifact → artifacts/models/cleaner.pkl
+2026-04-18 19:10:11 | INFO | __main__:run:95 - Cleaner stats: {'n_rows': 17520, 'n_outliers': 63, 'demand_mean': 981.1930314640413, 'demand_std': 275.6424048054246, 'demand_min': 191.97874999999988, 'demand_max': 1759.12875}
+2026-04-18 19:10:11 | INFO | __main__:run:98 - 
+⚙️  Stage 4: Feature Engineering
+2026-04-18 19:10:11 | INFO | src.feature_engineering.features:fit_transform:55 - Generated 51 features
+2026-04-18 19:10:11 | INFO | src.utils.helpers:save_artifact:45 - Saved artifact → artifacts/models/feature_engineer.pkl
+2026-04-18 19:10:11 | INFO | __main__:run:109 - Features: X_train=(12096, 51), X_val=(2460, 51), X_test=(2460, 51)
+2026-04-18 19:10:11 | INFO | __main__:run:119 - 
+🤖 Stage 5: Model Training
+2026-04-18 19:10:11 | INFO | __main__:run:141 - Training linear_regression...
+2026-04-18 19:10:11 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 14556 samples × 51 features
+2026-04-18 19:10:11 | INFO | src.evaluation.metrics:evaluate:167 - [linear_regression] Test — RMSE=79.58 MAE=40.90 MAPE=4.71% R²=0.9148
+2026-04-18 19:10:11 | INFO | src.evaluation.metrics:_plot_forecast:265 - Forecast plot saved → artifacts/plots/linear_regression_forecast.png
+2026-04-18 19:10:11 | INFO | src.evaluation.metrics:_plot_residuals:309 - Residual plot saved → artifacts/plots/linear_regression_residuals.png
+2026-04-18 19:10:11 | INFO | src.utils.helpers:save_artifact:45 - Saved artifact → artifacts/models/linear_regression.pkl
+2026-04-18 19:10:11 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 1992 samples × 51 features
+2026-04-18 19:10:11 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 4008 samples × 51 features
+2026-04-18 19:10:11 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 6024 samples × 51 features
+2026-04-18 19:10:11 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 8040 samples × 51 features
+2026-04-18 19:10:11 | INFO | src.models.baseline_models:fit:32 - Training linear_regression on 10056 samples × 51 features
+2026-04-18 19:10:11 | INFO | src.evaluation.metrics:time_series_cv:131 - CV (5 folds) — RMSE 103.09 ± 39.86 | MAPE 7.41% ± 3.87%
+2026-04-18 19:10:11 | INFO | __main__:run:141 - Training ridge...
+2026-04-18 19:10:11 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:10:11 | INFO | src.evaluation.metrics:evaluate:167 - [ridge] Test — RMSE=79.58 MAE=40.90 MAPE=4.71% R²=0.9148
+2026-04-18 19:10:11 | INFO | src.evaluation.metrics:_plot_forecast:265 - Forecast plot saved → artifacts/plots/ridge_forecast.png
+2026-04-18 19:10:12 | INFO | src.evaluation.metrics:_plot_residuals:309 - Residual plot saved → artifacts/plots/ridge_residuals.png
+2026-04-18 19:10:12 | INFO | src.utils.helpers:save_artifact:45 - Saved artifact → artifacts/models/ridge.pkl
+2026-04-18 19:10:12 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:10:12 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:10:12 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:10:12 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:10:12 | INFO | src.models.baseline_models:fit:55 - Training ridge — alpha=1.0
+2026-04-18 19:10:12 | INFO | src.evaluation.metrics:time_series_cv:131 - CV (5 folds) — RMSE 87.00 ± 12.97 | MAPE 5.84% ± 1.66%
+2026-04-18 19:10:12 | INFO | __main__:run:141 - Training lasso...
+2026-04-18 19:10:12 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 19:10:15 | INFO | src.models.baseline_models:fit:84 - Lasso: 5 / 51 features zeroed out (sparsity=9.8%)
+2026-04-18 19:10:15 | INFO | src.evaluation.metrics:evaluate:167 - [lasso] Test — RMSE=79.58 MAE=40.83 MAPE=4.70% R²=0.9148
+2026-04-18 19:10:15 | INFO | src.evaluation.metrics:_plot_forecast:265 - Forecast plot saved → artifacts/plots/lasso_forecast.png
+2026-04-18 19:10:15 | INFO | src.evaluation.metrics:_plot_residuals:309 - Residual plot saved → artifacts/plots/lasso_residuals.png
+2026-04-18 19:10:15 | INFO | src.utils.helpers:save_artifact:45 - Saved artifact → artifacts/models/lasso.pkl
+2026-04-18 19:10:15 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 19:10:15 | INFO | src.models.baseline_models:fit:84 - Lasso: 9 / 51 features zeroed out (sparsity=17.6%)
+2026-04-18 19:10:15 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 19:10:16 | INFO | src.models.baseline_models:fit:84 - Lasso: 8 / 51 features zeroed out (sparsity=15.7%)
+2026-04-18 19:10:16 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 19:10:16 | INFO | src.models.baseline_models:fit:84 - Lasso: 7 / 51 features zeroed out (sparsity=13.7%)
+2026-04-18 19:10:16 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 19:10:17 | INFO | src.models.baseline_models:fit:84 - Lasso: 6 / 51 features zeroed out (sparsity=11.8%)
+2026-04-18 19:10:17 | INFO | src.models.baseline_models:fit:78 - Training lasso — alpha=0.1
+2026-04-18 19:10:18 | INFO | src.models.baseline_models:fit:84 - Lasso: 6 / 51 features zeroed out (sparsity=11.8%)
+2026-04-18 19:10:18 | INFO | src.evaluation.metrics:time_series_cv:131 - CV (5 folds) — RMSE 84.77 ± 12.10 | MAPE 5.63% ± 1.66%
+2026-04-18 19:10:18 | INFO | __main__:run:141 - Training random_forest...
+2026-04-18 19:10:18 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 14556 samples × 51 features
+2026-04-18 19:10:29 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'demand_lag_168h': 0.8747629206244775, 'demand_lag_24h': 0.05288726739756762, 'is_night': 0.011365916970302418, 'demand_lag_48h': 0.008678760122869339, 'hour': 0.004580626179502409}
+2026-04-18 19:10:29 | INFO | src.evaluation.metrics:evaluate:167 - [random_forest] Test — RMSE=80.73 MAE=40.97 MAPE=4.73% R²=0.9124
+2026-04-18 19:10:29 | INFO | src.evaluation.metrics:_plot_forecast:265 - Forecast plot saved → artifacts/plots/random_forest_forecast.png
+2026-04-18 19:10:29 | INFO | src.evaluation.metrics:_plot_residuals:309 - Residual plot saved → artifacts/plots/random_forest_residuals.png
+2026-04-18 19:10:29 | INFO | src.utils.helpers:save_artifact:45 - Saved artifact → artifacts/models/random_forest.pkl
+2026-04-18 19:10:29 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 1992 samples × 51 features
+2026-04-18 19:10:30 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'demand_lag_168h': 0.7621671328948407, 'demand_lag_24h': 0.10915433373721187, 'is_night': 0.056847644902766614, 'hour': 0.012506885200072142, 'demand_lag_48h': 0.012285661337820128}
+2026-04-18 19:10:30 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 4008 samples × 51 features
+2026-04-18 19:10:33 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'is_night': 0.492857628435796, 'demand_lag_168h': 0.3681851622183655, 'demand_lag_24h': 0.06847188706239901, 'hour': 0.008923265612929682, 'demand_lag_48h': 0.007662747243738827}
+2026-04-18 19:10:33 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 6024 samples × 51 features
+2026-04-18 19:10:37 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'demand_lag_168h': 0.8432022446158611, 'demand_lag_24h': 0.07428108733011189, 'is_night': 0.015143138702897532, 'demand_lag_48h': 0.013482879125965313, 'demand_lag_1h': 0.004125438966824214}
+2026-04-18 19:10:37 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 8040 samples × 51 features
+2026-04-18 19:10:44 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'demand_lag_168h': 0.8601431034449887, 'demand_lag_24h': 0.06704814138958495, 'demand_lag_48h': 0.010739079346539677, 'is_night': 0.009111646662125985, 'demand_lag_1h': 0.0038884951642048655}
+2026-04-18 19:10:44 | INFO | src.models.advanced_models:fit:33 - Training random_forest — 200 estimators on 10056 samples × 51 features
+2026-04-18 19:10:55 | INFO | src.models.advanced_models:fit:44 - Top-5 features: {'demand_lag_168h': 0.8508619206226341, 'demand_lag_24h': 0.07712628482791925, 'is_night': 0.010047247080833252, 'demand_lag_48h': 0.008957340267401494, 'demand_lag_1h': 0.004153520010822629}
+2026-04-18 19:10:55 | INFO | src.evaluation.metrics:time_series_cv:131 - CV (5 folds) — RMSE 84.65 ± 4.67 | MAPE 5.56% ± 0.97%
+2026-04-18 19:10:55 | INFO | __main__:run:141 - Training xgboost...
+2026-04-18 19:10:55 | INFO | src.models.advanced_models:fit:79 - Training xgboost on 14556 samples
+2026-04-18 19:10:58 | INFO | src.evaluation.metrics:evaluate:167 - [xgboost] Test — RMSE=81.59 MAE=41.93 MAPE=4.79% R²=0.9105
+2026-04-18 19:10:58 | INFO | src.evaluation.metrics:_plot_forecast:265 - Forecast plot saved → artifacts/plots/xgboost_forecast.png
+2026-04-18 19:10:58 | INFO | src.evaluation.metrics:_plot_residuals:309 - Residual plot saved → artifacts/plots/xgboost_residuals.png
+2026-04-18 19:10:58 | INFO | src.utils.helpers:save_artifact:45 - Saved artifact → artifacts/models/xgboost.pkl
+2026-04-18 19:10:58 | INFO | src.models.advanced_models:fit:79 - Training xgboost on 1992 samples
+2026-04-18 19:11:00 | INFO | src.models.advanced_models:fit:79 - Training xgboost on 4008 samples
+2026-04-18 19:11:02 | INFO | src.models.advanced_models:fit:79 - Training xgboost on 6024 samples
+2026-04-18 19:11:05 | INFO | src.models.advanced_models:fit:79 - Training xgboost on 8040 samples
+2026-04-18 19:11:07 | INFO | src.models.advanced_models:fit:79 - Training xgboost on 10056 samples
+2026-04-18 19:11:09 | INFO | src.evaluation.metrics:time_series_cv:131 - CV (5 folds) — RMSE 96.67 ± 22.50 | MAPE 6.89% ± 2.74%
+2026-04-18 19:11:09 | INFO | __main__:run:141 - Training lightgbm...
+2026-04-18 19:11:09 | INFO | src.models.advanced_models:fit:121 - Training lightgbm on 14556 samples
+2026-04-18 19:11:12 | INFO | src.evaluation.metrics:evaluate:167 - [lightgbm] Test — RMSE=80.74 MAE=40.74 MAPE=4.70% R²=0.9123
+2026-04-18 19:11:13 | INFO | src.evaluation.metrics:_plot_forecast:265 - Forecast plot saved → artifacts/plots/lightgbm_forecast.png
+2026-04-18 19:11:13 | INFO | src.evaluation.metrics:_plot_residuals:309 - Residual plot saved → artifacts/plots/lightgbm_residuals.png
+2026-04-18 19:11:13 | INFO | src.utils.helpers:save_artifact:45 - Saved artifact → artifacts/models/lightgbm.pkl
+2026-04-18 19:11:13 | INFO | src.models.advanced_models:fit:121 - Training lightgbm on 1992 samples
+2026-04-18 19:11:15 | INFO | src.models.advanced_models:fit:121 - Training lightgbm on 4008 samples
+2026-04-18 19:11:17 | INFO | src.models.advanced_models:fit:121 - Training lightgbm on 6024 samples
+2026-04-18 19:11:19 | INFO | src.models.advanced_models:fit:121 - Training lightgbm on 8040 samples
+2026-04-18 19:11:21 | INFO | src.models.advanced_models:fit:121 - Training lightgbm on 10056 samples
+2026-04-18 19:11:25 | INFO | src.evaluation.metrics:time_series_cv:131 - CV (5 folds) — RMSE 86.27 ± 8.54 | MAPE 5.92% ± 1.74%
+2026-04-18 19:11:25 | INFO | __main__:run:158 - Training LSTM (deep learning)...
+2026-04-18 19:12:12 | INFO | src.models.lstm_model:fit:95 - LSTM sequences — X: (11928, 168, 1), y: (11928,)
+2026-04-18 19:12:16 | INFO | src.models.lstm_model:fit:121 - Training LSTM — epochs=50, batch_size=64, seq_length=168

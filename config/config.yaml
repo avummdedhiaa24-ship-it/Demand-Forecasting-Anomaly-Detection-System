@@ -1,0 +1,176 @@
+# config/config.yaml
+# =====================================================================
+# Intelligent Demand Forecasting & Anomaly Detection System
+# Main Configuration File
+# =====================================================================
+
+project:
+  name: "demand_forecasting_system"
+  version: "1.0.0"
+  description: "End-to-end ML system for demand forecasting and anomaly detection"
+
+# ── Data ──────────────────────────────────────────────────────────────
+data:
+  raw_path: "data/raw"
+  processed_path: "data/processed"
+  dataset_url: "https://archive.ics.uci.edu/ml/machine-learning-databases/00321/LD2011_2014.txt.zip"
+  dataset_name: "electricity_demand"
+  target_column: "demand"
+  timestamp_column: "timestamp"
+  frequency: "h"           # 1-hour intervals
+  train_ratio: 0.7
+  val_ratio: 0.15
+  test_ratio: 0.15
+
+# ── Preprocessing ─────────────────────────────────────────────────────
+preprocessing:
+  missing_value_strategy: "interpolate"   # interpolate | ffill | bfill | drop
+  outlier_method: "iqr"                   # iqr | zscore | both
+  iqr_multiplier: 1.5
+  zscore_threshold: 3.0
+  min_demand: 0.0
+  max_demand: 10000.0
+  scaling_method: "standard"             # standard | minmax | robust
+
+# ── Feature Engineering ───────────────────────────────────────────────
+feature_engineering:
+  lag_features: [1, 2, 3, 24, 48, 168]  # hours
+  rolling_windows: [3, 6, 12, 24, 48, 168]
+  rolling_stats: ["mean", "std", "min", "max"]
+  use_cyclical_encoding: true
+  use_holiday_features: true
+  target_encode_categoricals: false
+
+# ── Models ────────────────────────────────────────────────────────────
+models:
+  baseline:
+    linear_regression:
+      fit_intercept: true
+    ridge:
+      alpha: 1.0
+    lasso:
+      alpha: 0.1
+      max_iter: 10000
+
+  advanced:
+    random_forest:
+      n_estimators: 200
+      max_depth: 15
+      min_samples_split: 5
+      min_samples_leaf: 2
+      n_jobs: -1
+      random_state: 42
+
+    xgboost:
+      n_estimators: 500
+      learning_rate: 0.05
+      max_depth: 7
+      subsample: 0.8
+      colsample_bytree: 0.8
+      reg_alpha: 0.1
+      reg_lambda: 1.0
+      random_state: 42
+      n_jobs: -1
+
+    lightgbm:
+      n_estimators: 500
+      learning_rate: 0.05
+      max_depth: 7
+      num_leaves: 63
+      subsample: 0.8
+      colsample_bytree: 0.8
+      reg_alpha: 0.1
+      reg_lambda: 1.0
+      random_state: 42
+      n_jobs: -1
+      verbose: -1
+
+  deep_learning:
+    lstm:
+      sequence_length: 168     # 1 week of hourly data
+      lstm_units: [128, 64]
+      dense_units: [32]
+      dropout_rate: 0.2
+      recurrent_dropout: 0.1
+      batch_size: 64
+      epochs: 50
+      learning_rate: 0.001
+      patience: 10             # early stopping
+      validation_split: 0.1
+      optimizer: "adam"
+
+# ── Anomaly Detection ─────────────────────────────────────────────────
+anomaly_detection:
+  isolation_forest:
+    n_estimators: 200
+    contamination: 0.05
+    max_samples: "auto"
+    random_state: 42
+
+  zscore:
+    threshold: 3.0
+
+  residual_based:
+    threshold_multiplier: 3.0  # n * std of residuals
+
+  severity_thresholds:
+    low: 0.3
+    medium: 0.6
+    high: 0.8
+
+# ── Evaluation ────────────────────────────────────────────────────────
+evaluation:
+  metrics: ["rmse", "mae", "mape", "r2"]
+  cv_splits: 5
+  cv_gap: 24                   # hours gap between train and val in time-series CV
+  primary_metric: "rmse"
+  save_plots: true
+  plots_path: "artifacts/plots"
+
+# ── API ───────────────────────────────────────────────────────────────
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4
+  reload: false
+  log_level: "info"
+  cors_origins: ["*"]
+  rate_limit: 100              # requests per minute
+  model_path: "artifacts/models/best_model.pkl"
+
+# ── Database ──────────────────────────────────────────────────────────
+database:
+  host: "${DB_HOST:-localhost}"
+  port: 5432
+  name: "${DB_NAME:-demand_forecast}"
+  user: "${DB_USER:-postgres}"
+  password: "${DB_PASSWORD:-postgres}"
+  pool_size: 10
+  max_overflow: 20
+  pool_timeout: 30
+  echo: false
+
+# ── Dashboard ─────────────────────────────────────────────────────────
+dashboard:
+  host: "0.0.0.0"
+  port: 8501
+  api_url: "http://localhost:8000"
+  refresh_interval: 60         # seconds
+  default_lookback_days: 30
+
+# ── Logging ───────────────────────────────────────────────────────────
+logging:
+  level: "INFO"
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {name}:{function}:{line} - {message}"
+  log_path: "logs/system.log"
+  rotation: "100 MB"
+  retention: "30 days"
+  serialize: false
+
+# ── Monitoring ────────────────────────────────────────────────────────
+monitoring:
+  enable_metrics: true
+  metrics_port: 9090
+  drift_detection_window: 7   # days
+  drift_threshold: 0.1
+  latency_sla_ms: 500
