@@ -87,13 +87,13 @@ models:
 
   deep_learning:
     lstm:
-      sequence_length: 168     # 1 week of hourly data
-      lstm_units: [128, 64]
+      sequence_length: 24     # 1 week of hourly data
+      lstm_units: [64, 32]
       dense_units: [32]
       dropout_rate: 0.2
       recurrent_dropout: 0.1
-      batch_size: 64
-      epochs: 50
+      batch_size: 256
+      epochs: 10
       learning_rate: 0.001
       patience: 10             # early stopping
       validation_split: 0.1
